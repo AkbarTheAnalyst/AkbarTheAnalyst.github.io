@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Akbar Khan — Applied Mathematics & Scientific Machine Learning</title>
+  <meta name="description" content="MS Applied Mathematics researcher at NED University, Karachi. Research focus: Physics-Informed Neural Networks (PINNs), neural operators, and data-driven PDE modeling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --paper: #faf9f6;
+      --accent: #2d5a7b;
+      --accent-light: #e8f0f6;
+      --accent-dark: #1e3d54;
+      --muted: #6b7280;
+      --border: #e5e4e0;
+      --warm: #f5f0e8;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { 
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(250, 249, 246, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* --- HERO --- */
+    .hero {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 8rem 1.5rem 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 600px;
+    }
+
+    .hero-text .subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.2s;
+    }
+
+    .hero-text .subtitle a:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.45rem 0.9rem;
+      border: 1.5px solid var(--accent);
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .hero-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero-link svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* --- SECTIONS --- */
+    section {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--ink);
+      display: inline-block;
+    }
+
+    /* --- RESEARCH INTERESTS --- */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .interest-card {
+      background: var(--warm);
+      border-radius: 6px;
+      padding: 1.25rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .interest-card h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .interest-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* --- PUBLICATIONS --- */
+    .pub-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .pub-card:hover {
+      border-color: var(--accent);
+    }
+
+    .pub-status {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-authors strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .pub-venue {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .pub-details {
+      font-size: 0.84rem;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .pub-link {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      transition: all 0.2s;
+    }
+
+    .pub-link:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+    }
+
+    /* --- EDUCATION --- */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      align-items: start;
+    }
+
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-top: 0.15rem;
+    }
+
+    .edu-details h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .edu-details p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .edu-details .thesis {
+      font-size: 0.84rem;
+      color: var(--ink);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    /* --- SKILLS --- */
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent-dark);
+      background: var(--accent-light);
+      padding: 0.3rem 0.65rem;
+      border-radius: 3px;
+    }
+
+    /* --- CONTACT --- */
+    .contact-block {
+      background: var(--warm);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-block p {
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-block a:hover {
+      border-color: var(--accent);
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 600px) {
+      html { font-size: 15.5px; }
+      .hero { padding-top: 6rem; }
+      .hero-text h1 { font-size: 2rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .edu-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .interests-grid { grid-template-columns: 1fr; }
+    }
+
+    /* --- ANIMATIONS --- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text { animation: fadeUp 0.6s ease-out; }
+    .hero-links { animation: fadeUp 0.6s ease-out 0.15s both; }
+    section { animation: fadeUp 0.5s ease-out 0.1s both; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-name">M. Akbar Khan</a>
+      <ul class="nav-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Papers</a></li>
+        <li><a href="#education">Background</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Muhammad Akbar Khan</h1>
+      <p class="subtitle">
+        MS Applied Mathematics researcher at <a href="https://www.neduet.edu.pk/" target="_blank" rel="noopener">NED University of Engineering &amp; Technology</a>, Karachi. 
+        I develop physics-informed neural networks for solving partial differential equations, with a focus on interface-tracking problems in computational fluid dynamics.
+      </p>
+      <p class="subtitle" style="margin-top: 0.75rem;">
+        Currently seeking fully-funded PhD positions in scientific machine learning, neural operators, and data-driven PDE modeling.
+      </p>
+      <div class="hero-links">
+        <a href="https://orcid.org/0009-0001-7956-0080" target="_blank" rel="noopener" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-1.847-1.163-3.722-3.916-3.722h-2.403z"/></svg>
+          ORCID
+        </a>
+        <a href="https://github.com/AkbarTheAnalyst" target="_blank" rel="noopener" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://arxiv.org/user/" target="_blank" rel="noopener" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 3v14h14V5H5zm2 2h10v1.5H7V7zm0 3h10v1.5H7v-1.5zm0 3h7v1.5H7V13z"/></svg>
+          arXiv
+        </a>
+        <a href="mailto:khan.pg4200844@cloud.neduet.edu.pk" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESEARCH INTERESTS -->
+  <section id="research">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="interests-grid">
+      <div class="interest-card">
+        <h3>Physics-Informed Neural Networks</h3>
+        <p>Training strategies, loss balancing, causal weighting, and architectures (RFF, modified MLPs) for accurate PDE solutions.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Level-Set Methods</h3>
+        <p>Neural network approaches to interface tracking and advection in computational fluid dynamics.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Neural Operators</h3>
+        <p>Foundation models and operator learning (DeepONet, FNO) for cross-domain PDE solving and surrogate modeling.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Scientific Computing</h3>
+        <p>Numerical methods for PDEs, optimization, and high-performance computing for scientific applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+    <div class="pub-card">
+      <span class="pub-status">Under Review</span>
+      <h3 class="pub-title">A Systematic Study of Physics-Informed Neural Networks for Level-Set Interface Advection</h3>
+      <p class="pub-authors"><strong>Muhammad Akbar Khan</strong> and Fahim Raees</p>
+      <p class="pub-venue">International Journal for Numerical Methods in Fluids (IJNMF), Wiley, 2026</p>
+      <p class="pub-details">
+        A comprehensive study of PINNs for solving the level-set advection equation across four benchmark problems: 
+        translation, rigid-body rotation, Zalesak's disk, and the reversed single-vortex. 
+        47 experiments systematically investigate network architecture (Tanh vs. RFF), training strategies (causal weighting, learning rate scheduling), 
+        eikonal regularization, and collocation sampling. The proposed PINN framework achieves results approximately 2&times; more accurate than the state-of-the-art 
+        classical numerical method on the reversed vortex benchmark.
+      </p>
+      <div class="pub-links">
+        <a href="https://github.com/AkbarTheAnalyst/pinn-level-set" target="_blank" rel="noopener" class="pub-link">Code</a>
+        <!-- <a href="#" class="pub-link">arXiv</a> -->
+        <!-- <a href="#" class="pub-link">PDF</a> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-item">
+      <span class="edu-year">2023 — 2026</span>
+      <div class="edu-details">
+        <h3>MS Applied Mathematics</h3>
+        <p>NED University of Engineering &amp; Technology, Karachi, Pakistan</p>
+        <p class="thesis">Thesis: Physics-Informed Neural Networks for the Level-Set Equation</p>
+        <p style="font-size:0.84rem; color:var(--muted);">Supervisor: Dr. Fahim Raees</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:2rem;">Technical Skills</h2>
+    <div class="skills-row">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">PyTorch</span>
+      <span class="skill-tag">NumPy</span>
+      <span class="skill-tag">Matplotlib</span>
+      <span class="skill-tag">SciPy</span>
+      <span class="skill-tag">Pandas</span>
+      <span class="skill-tag">LaTeX</span>
+      <span class="skill-tag">Google Colab</span>
+      <span class="skill-tag">Git/GitHub</span>
+      <span class="skill-tag">PostgreSQL</span>
+      <span class="skill-tag">Jupyter</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-block">
+      <p>I am actively seeking fully-funded PhD positions (Fall 2026/2027) in scientific machine learning, with a focus on physics-informed methods and neural operators for PDE modeling. If you are interested in my work or have opportunities, I would be glad to hear from you.</p>
+      <p style="margin-top:0.75rem;">
+        <strong>Email:</strong> <a href="mailto:khan.pg4200844@cloud.neduet.edu.pk">khan.pg4200844@cloud.neduet.edu.pk</a><br>
+        <strong>ORCID:</strong> <a href="https://orcid.org/0009-0001-7956-0080" target="_blank" rel="noopener">0009-0001-7956-0080</a><br>
+        <strong>GitHub:</strong> <a href="https://github.com/AkbarTheAnalyst" target="_blank" rel="noopener">AkbarTheAnalyst</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Muhammad Akbar Khan. Built with purpose.</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
+</html>
