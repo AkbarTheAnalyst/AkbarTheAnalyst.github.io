@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Akbar Khan — Applied Mathematics & Scientific Machine Learning</title>
   <meta name="description" content="MS Applied Mathematics researcher at NED University, Karachi. Research focus: Physics-Informed Neural Networks (PINNs), level-set methods, neural operators, and data-driven PDE modeling.">
-  <meta name="keywords" content="Muhammad Akbar Khan, PINNs, physics-informed neural networks, level-set, scientific machine learning, NED University, PhD applicant">
+  <meta name="keywords" content="Muhammad Akbar Khan, PINNs, physics-informed neural networks, neural operators, FNO, level-set, thermal analysis, building materials, scientific machine learning, NED University, PhD applicant">
   <meta name="author" content="Muhammad Akbar Khan">
   <meta property="og:title" content="Muhammad Akbar Khan — Applied Mathematics & Scientific Machine Learning">
-  <meta property="og:description" content="MS Applied Mathematics researcher developing physics-informed neural networks for interface-tracking problems in computational fluid dynamics.">
+  <meta property="og:description" content="MS Applied Mathematics researcher developing physics-informed neural networks and neural operators for PDE applications including interface tracking and thermal analysis of building materials.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://akbarkhan.dev">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∇</text></svg>">
@@ -572,7 +572,7 @@
       <h1>Muhammad Akbar Khan</h1>
       <p class="subtitle">
         MS Applied Mathematics researcher at <a href="https://www.neduet.edu.pk/" target="_blank" rel="noopener">NED University of Engineering &amp; Technology</a>, Karachi, supervised by Dr.&nbsp;Fahim Raees.
-        I develop physics-informed neural networks for solving partial differential equations, with a focus on interface-tracking problems in computational fluid dynamics.
+        I develop physics-informed neural networks and neural operators for solving partial differential equations, with applications to interface-tracking problems in computational fluid dynamics and thermal analysis of building materials.
       </p>
       <p class="phd-note">Seeking fully-funded PhD positions for Spring 2027</p>
       <div class="hero-links">
@@ -610,12 +610,16 @@
     <h2 class="section-title">News</h2>
     <ul class="news-list">
       <li>
-        <span class="news-date">May 2026</span>
-        <span class="news-text">Preprint posted on Zenodo — <a href="https://doi.org/10.5281/zenodo.20363035" target="_blank" rel="noopener">doi:10.5281/zenodo.20363035</a>.</span>
+        <span class="news-date">Jun 2026</span>
+        <span class="news-text">Preprint posted on Zenodo — <a href="https://doi.org/10.5281/zenodo.21000893" target="_blank" rel="noopener">doi:10.5281/zenodo.21000893</a> — PINO/FNO thermal ranking paper.</span>
+      </li>
+      <li>
+        <span class="news-date">Jun 2026</span>
+        <span class="news-text">Paper submitted to <em>Machine Learning: Science and Technology</em> (IOP Publishing) — Manuscript ID MLST-105622.</span>
       </li>
       <li>
         <span class="news-date">May 2026</span>
-        <span class="news-text">Paper submitted to <em>Physics of Fluids</em> (AIP Publishing).</span>
+        <span class="news-text">Preprint posted on Zenodo — <a href="https://doi.org/10.5281/zenodo.20363035" target="_blank" rel="noopener">doi:10.5281/zenodo.20363035</a> — PINN level-set paper.</span>
       </li>
       <li>
         <span class="news-date">May 2026</span>
@@ -626,7 +630,7 @@
         <span class="news-text">Released <a href="https://github.com/AkbarTheAnalyst/pinn-level-set" target="_blank" rel="noopener">pinn-level-set</a> — code and experiments for our PINN level-set study.</span>
       </li>
       <li>
-        <span class="news-date">Dec 2025</span>
+        <span class="news-date">Jun 2026</span>
         <span class="news-text">Completed MS coursework in Applied Mathematics at NED University.</span>
       </li>
     </ul>
@@ -669,7 +673,7 @@
       <span class="pub-status">Under Review</span>
       <h3 class="pub-title">A Systematic Study of Physics-Informed Neural Networks for the Level-Set Interface Advection</h3>
       <p class="pub-authors"><strong>Muhammad Akbar Khan</strong> and Fahim Raees</p>
-      <p class="pub-venue">Physics of Fluids, AIP Publishing, 2026</p>
+      <p class="pub-venue">Machine Learning: Science and Technology, IOP Publishing, 2026</p>
       <p class="pub-details">
         A 58-experiment ablation study of PINNs for the level-set advection equation across four benchmarks:
         linear translation, solid-body rotation, reversed vortex deformation, and the Zalesak rotating slotted disc.
@@ -684,6 +688,23 @@
         <!-- <a href="#" class="pub-link">PDF</a> -->
       </div>
     </div>
+    <div class="pub-card" style="margin-top:1.5rem;">
+      <span class="pub-status">Preprint</span>
+      <h3 class="pub-title">A Physics-Informed Neural Operator for Thermal Ranking of Low-Cost Wall Materials in Hot-Dry Climates</h3>
+      <p class="pub-authors"><strong>Muhammad Akbar Khan</strong> and Fahim Raees</p>
+      <p class="pub-venue">Zenodo, 2026</p>
+      <p class="pub-details">
+        A two-stage framework combining a Crank&ndash;Nicolson FDM solver and a PINO/FNO surrogate
+        for parametric thermal analysis of five indigenous Sindh wall materials across a nine-dimensional
+        parameter space (1500 LHS samples). The trained PINO reduces peak inner-surface temperature MAE
+        by 28.4% over a data-only FNO baseline (0.252&thinsp;K vs. 0.352&thinsp;K) while preserving
+        the material ranking order exactly.
+      </p>
+      <div class="pub-links">
+        <a href="https://doi.org/10.5281/zenodo.21000893" target="_blank" rel="noopener" class="pub-link">Preprint</a>
+      </div>
+    </div>
+  
   </section>
 
   <!-- EDUCATION -->
