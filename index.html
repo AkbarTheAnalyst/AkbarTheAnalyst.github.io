@@ -610,6 +610,14 @@
     <h2 class="section-title">News</h2>
     <ul class="news-list">
       <li>
+        <span class="news-date">Aug 2026</span>
+        <span class="news-text">Preprint posted on Zenodo — <a href="https://doi.org/10.5281/zenodo.21862964" target="_blank" rel="noopener">doi:10.5281/zenodo.21862964</a> — FNO coupled hygrothermal ranking paper (with Fahim Raees).</span>
+      </li>
+      <li>
+        <span class="news-date">Aug 2026</span>
+        <span class="news-text">Preprint posted on Zenodo — <a href="https://doi.org/10.5281/zenodo.21860060" target="_blank" rel="noopener">doi:10.5281/zenodo.21860060</a> — 3D eikonal level-set PINN paper.</span>
+      </li>
+      <li>
         <span class="news-date">Jul 2026</span>
         <span class="news-text">Paper published in <em>Machine Learning: Science and Technology</em> (IOP Publishing) — <a href="https://doi.org/10.1088/2632-2153/ae8b74" target="_blank" rel="noopener">doi:10.1088/2632-2153/ae8b74</a> — Gold Open Access, CC BY 4.0.</span>
       </li>
@@ -619,7 +627,7 @@
       </li>
       <li>
         <span class="news-date">Jul 2026</span>
-        <span class="news-text">Paper submitted to the <em>International Journal of Heat and Mass Transfer</em> (Elsevier) — Manuscript ID HMT-D-26-04702 — PINO/FNO thermal ranking paper.</span>
+        <span class="news-text">Paper submitted to <em>Scientific Reports</em> (Springer Nature) — PINO/FNO thermal ranking paper — under review.</span>
       </li>
       <li>
         <span class="news-date">Jul 2026</span>
@@ -710,8 +718,8 @@
     <div class="pub-card" style="margin-top:1.5rem;">
       <span class="pub-status">Under Review</span>
       <h3 class="pub-title">A Physics-Informed Neural Operator for Thermal Ranking of Low-Cost Wall Materials in Hot-Dry Climates</h3>
-      <p class="pub-authors"><strong>Muhammad Akbar Khan</strong> and Fahim Raees</p>
-      <p class="pub-venue">International Journal of Heat and Mass Transfer, Elsevier, 2026 &mdash; Manuscript ID HMT-D-26-04702 (under review)</p>
+      <p class="pub-authors"><strong>Muhammad Akbar Khan</strong>, Fahim Raees, and Ubaida Fatima</p>
+      <p class="pub-venue"><em>Scientific Reports</em>, Springer Nature, 2026 &mdash; Under review; submitted July 2026</p>
       <p class="pub-details">
         A two-stage framework combining a Crank&ndash;Nicolson FDM solver under diurnal solar forcing
         and a PINO/FNO surrogate for parametric thermal analysis of five indigenous Sindh wall materials
@@ -721,10 +729,43 @@
         the ISO&nbsp;13786 time lag and decrement factor to 0.99&thinsp;h and 0.010.
       </p>
       <div class="pub-links">
+        <a href="https://arxiv.org/abs/2607.25668" target="_blank" rel="noopener" class="pub-link">arXiv</a>
         <a href="https://doi.org/10.5281/zenodo.21000893" target="_blank" rel="noopener" class="pub-link">Preprint</a>
       </div>
     </div>
-  
+    <div class="pub-card" style="margin-top:1.5rem;">
+      <span class="pub-status">Preprint</span>
+      <h3 class="pub-title">Eikonal Regularisation in Physics-Informed Neural Networks for Three-Dimensional Level-Set Advection: Transferability of Two-Dimensional Design Principles</h3>
+      <p class="pub-authors"><strong>Muhammad Akbar Khan</strong></p>
+      <p class="pub-venue">Zenodo, 2026 &mdash; <a href="https://doi.org/10.5281/zenodo.21860060" target="_blank" rel="noopener">doi:10.5281/zenodo.21860060</a></p>
+      <p class="pub-details">
+        Extends the level-set PINN framework to three dimensions across four benchmarks (translating sphere,
+        rotating sphere, Zalesak slotted sphere, reversed single vortex). An 18-run seed-swept eikonal weight
+        study per benchmark shows 2D-derived optimal weights transfer to 3D benchmark-by-benchmark (3 of 4
+        unchanged). Introduces feature-restricted classification metrics (F<sub>fill</sub>/F<sub>erode</sub>)
+        for thin-feature certification; baseline comparison against fifth-order WENO + TVD-RK3 FDM.
+      </p>
+      <div class="pub-links">
+        <a href="https://doi.org/10.5281/zenodo.21860060" target="_blank" rel="noopener" class="pub-link">Preprint</a>
+      </div>
+    </div>
+    <div class="pub-card" style="margin-top:1.5rem;">
+      <span class="pub-status">Preprint</span>
+      <h3 class="pub-title">A Fourier Neural Operator for Coupled Hygrothermal Ranking of Low-Cost Wall Materials under Measured Climate Forcing</h3>
+      <p class="pub-authors">Fahim Raees and <strong>Muhammad Akbar Khan</strong></p>
+      <p class="pub-venue">Zenodo, 2026 &mdash; <a href="https://doi.org/10.5281/zenodo.21862964" target="_blank" rel="noopener">doi:10.5281/zenodo.21862964</a></p>
+      <p class="pub-details">
+        Extends the thermal surrogate (Paper 2) to a fully coupled K&uuml;nzel HAM system with latent heat
+        and dynamic moisture redistribution, using 30-day measured NASA POWER Sukkur (June 2025) boundary
+        forcing and a 12-dimensional parameter space (2000 LHS samples). A data-only FNO achieves a
+        293&times; speed-up over FDM while preserving material ranking; Sobol analysis shows hygric
+        parameters have statistically negligible total-effect indices on the ranking QoI.
+      </p>
+      <div class="pub-links">
+        <a href="https://doi.org/10.5281/zenodo.21862964" target="_blank" rel="noopener" class="pub-link">Preprint</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- EDUCATION -->
