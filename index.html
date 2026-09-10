@@ -615,7 +615,11 @@
       </li>
       <li>
         <span class="news-date">Aug 2026</span>
-        <span class="news-text">Preprint posted on Zenodo — <a href="https://doi.org/10.5281/zenodo.21860060" target="_blank" rel="noopener">doi:10.5281/zenodo.21860060</a> — 3D eikonal level-set PINN paper.</span>
+        <span class="news-text">Paper submitted to <em>Machine Learning: Science and Technology</em> (IOP Publishing) — Manuscript ID MLST-105968 — SDF-aware weighting for 3D level-set PINNs — under review.</span>
+      </li>
+      <li>
+        <span class="news-date">Aug 2026</span>
+        <span class="news-text">Preprint posted — <a href="https://arxiv.org/abs/2608.08322" target="_blank" rel="noopener">arXiv:2608.08322</a> — SDF-aware weighting for 3D level-set PINNs.</span>
       </li>
       <li>
         <span class="news-date">Jul 2026</span>
@@ -730,28 +734,32 @@
       </p>
       <div class="pub-links">
         <a href="https://arxiv.org/abs/2607.25668" target="_blank" rel="noopener" class="pub-link">arXiv</a>
-        <a href="https://doi.org/10.5281/zenodo.21000893" target="_blank" rel="noopener" class="pub-link">Preprint</a>
       </div>
     </div>
     <div class="pub-card" style="margin-top:1.5rem;">
-      <span class="pub-status">Preprint</span>
-      <h3 class="pub-title">Eikonal Regularisation in Physics-Informed Neural Networks for Three-Dimensional Level-Set Advection: Transferability of Two-Dimensional Design Principles</h3>
+      <span class="pub-status">Under Review</span>
+      <h3 class="pub-title">SDF-Aware Weighting: Adaptive Eikonal Regularisation for Three-Dimensional Level-Set Physics-Informed Neural Networks</h3>
       <p class="pub-authors"><strong>Muhammad Akbar Khan</strong></p>
-      <p class="pub-venue">Zenodo, 2026 &mdash; <a href="https://doi.org/10.5281/zenodo.21860060" target="_blank" rel="noopener">doi:10.5281/zenodo.21860060</a></p>
+      <p class="pub-venue"><em>Machine Learning: Science and Technology</em>, IOP Publishing, 2026 &mdash; Under review; submitted August 2026 (MLST-105968)</p>
       <p class="pub-details">
-        Extends the level-set PINN framework to three dimensions across four benchmarks (translating sphere,
-        rotating sphere, Zalesak slotted sphere, reversed single vortex). An 18-run seed-swept eikonal weight
-        study per benchmark shows 2D-derived optimal weights transfer to 3D benchmark-by-benchmark (3 of 4
-        unchanged). Introduces feature-restricted classification metrics (F<sub>fill</sub>/F<sub>erode</sub>)
-        for thin-feature certification; baseline comparison against fifth-order WENO + TVD-RK3 FDM.
+        Identifies a fundamental failure mode in standard gradient-norm loss balancing for PINN eikonal
+        regularisation: the eikonal residual of the correct solution is nonzero wherever the level-set
+        departs from a signed-distance function, so driving it to zero corrupts the solution. Introduces
+        SDF-Aware Weighting (SAW), which combines a residual-quantile gate with a gradient-norm ratio to
+        exclude points with legitimate SDF departure before scaling the surviving term. Across four 3D
+        benchmarks a single SAW configuration selects an eikonal weight within an order of magnitude of
+        an 18-run manual sweep spanning four decades (10<sup>&minus;1</sup> to 10<sup>&minus;5</sup>); on
+        the Zalesak slotted sphere SAW attains lower error than any weight in that sweep. Introduces
+        feature-restricted classification metrics (F<sub>fill</sub>/F<sub>erode</sub>) to certify
+        thin-feature preservation independently of global error.
       </p>
       <div class="pub-links">
-        <a href="https://doi.org/10.5281/zenodo.21860060" target="_blank" rel="noopener" class="pub-link">Preprint</a>
+        <a href="https://arxiv.org/abs/2608.08322" target="_blank" rel="noopener" class="pub-link">arXiv</a>
       </div>
     </div>
     <div class="pub-card" style="margin-top:1.5rem;">
       <span class="pub-status">Preprint</span>
-      <h3 class="pub-title">A Fourier Neural Operator for Coupled Hygrothermal Ranking of Low-Cost Wall Materials under Measured Climate Forcing</h3>
+      <h3 class="pub-title">A Fourier Neural Operator for Coupled Hygrothermal Ranking of Low-Cost Wall Materials under NASA POWER Reanalysis Forcing</h3>
       <p class="pub-authors">Fahim Raees and <strong>Muhammad Akbar Khan</strong></p>
       <p class="pub-venue">Zenodo, 2026 &mdash; <a href="https://doi.org/10.5281/zenodo.21862964" target="_blank" rel="noopener">doi:10.5281/zenodo.21862964</a></p>
       <p class="pub-details">
@@ -784,6 +792,14 @@
         </p>
       </div>
     </div>
+    <div class="edu-item">
+      <span class="edu-year">2017 &mdash; 2021</span>
+      <div class="edu-details">
+        <h3>BS Mathematics</h3>
+        <p>International Islamic University Islamabad, Pakistan</p>
+        <p style="font-size:0.84rem; color:var(--muted);">CGPA: 3.37/4.00 &middot; HEC Need-Based Scholarship (Higher Education Commission)</p>
+      </div>
+    </div>
 
     <h2 class="section-title" style="margin-top:2rem;">Technical Skills</h2>
     <div class="skills-row">
@@ -798,6 +814,8 @@
       <span class="skill-tag">Git / GitHub</span>
       <span class="skill-tag">PostgreSQL</span>
       <span class="skill-tag">Jupyter</span>
+      <span class="skill-tag">Statsmodels</span>
+      <span class="skill-tag">TikZ</span>
     </div>
   </section>
 
